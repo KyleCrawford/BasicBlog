@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.btn{
+    width:500px;
+    border:1px solid black;
+}

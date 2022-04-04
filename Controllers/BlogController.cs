@@ -55,6 +55,14 @@ namespace BlogMe.Controllers
         // Edit an existing blog
         public ActionResult Edit(int id)
         {
+            if (id == 0)
+            {
+                // we are creating a new blog
+            }
+            else
+            {
+                // We are editing an existing blog
+            }
             return View();
         }
 
