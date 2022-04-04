@@ -10,6 +10,7 @@ namespace BlogMe.Controllers
 {
     public class BlogController : Controller
     {
+        // Our database context
         private ApplicationDbContext _context;
 
         public BlogController()
@@ -27,25 +28,17 @@ namespace BlogMe.Controllers
         {
             List<Blog> blogs = _context.Blogs.ToList();
 
-            var currentUser = this.User;
-
-
-
             int pageSize = 2;
             int pageNumber = (page ?? 1);
 
-
-
-
             var pageBlogs = blogs.ToPagedList(pageNumber, pageSize);
-
 
             return View(pageBlogs);
         }
 
-            // View Blog
-            // Show one blog in reading format
-            public ActionResult Read(int id)
+        // View Blog
+        // Show one blog in reading format
+        public ActionResult Read(int id)
         {
             Blog blog = _context.Blogs.Find(id);
             return View(blog);
