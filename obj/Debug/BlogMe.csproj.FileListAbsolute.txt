@@ -116,3 +116,7 @@ C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Mi
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.csproj.GenerateResource.cache
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.CreateBlogModel.resources
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.SeedAdminUserAndAdminRole.resources
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.dll
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.Mvc.dll
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.xml
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.Mvc.xml
