@@ -8,7 +8,7 @@
 @if (@User.Identity.IsAuthenticated)
 {
     <br />
-    @Html.ActionLink("New Blog", "Edit", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("New Blog", "Edit", new { id=0 }, new { @class = "btn btn-primary" })
 }
 
 
@@ -34,7 +34,7 @@
                         var test = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
                     }
                    
-                    <tr onclick="location.href = '@Url.Action("text", "Read", new { id=Model.BlogList[i].Id })'">
+                    <tr onclick="location.href = '@Url.Action("Read", "Blog", new { id=Model.BlogList[i].Id })'">
                         <td class="col-md-4">@Model.BlogList[i].Title</td>
                         <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
                         <td class="col-md-4">@test[0].Email</td>
