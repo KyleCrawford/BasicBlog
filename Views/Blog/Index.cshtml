@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@model BlogMe.ViewModels.ViewAllBlogsViewModel
+@model PagedList.IPagedList<BlogMe.Models.Blog>
 @{
     ViewBag.Title = "Blogs";
 }
@@ -7,25 +7,23 @@
 @if (@User.Identity.IsAuthenticated)
 {
     <p>We are authenticated</p>
+    <p>I want to put new blog button here (only if logged in)</p>
 }
-else 
-{
-    <p>We are not authd</p>
-}
+
 
 <h2>Blogs</h2>
 <div>
-    <p>I want to put new blog button here (only if logged in)</p>
+
     <p>@User.Identity.GetUserId() </p>
 </div>
 <ul>
-    
 
-    @for (int i = 0; i < Model.BlogList.Count(); i++)
+
+    @for (int i = 0; i < Model.Count(); i++)
     {
         <li>
-            @Model.BlogList[i].Title
+            @Model[i].Title
         </li>
     }
 </ul>
-<p>@Model.BlogList.Count()</p>
+<p>@Model.Count()</p>
