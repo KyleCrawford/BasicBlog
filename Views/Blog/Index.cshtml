@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity;
+@using PagedList.Mvc;
 @model PagedList.IPagedList<BlogMe.Models.Blog>
 @{
     ViewBag.Title = "Blogs";
@@ -27,4 +28,9 @@
         </li>
     }
 </ul>
-<p>@Model.Count()</p>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+

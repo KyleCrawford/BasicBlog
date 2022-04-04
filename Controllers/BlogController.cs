@@ -28,7 +28,7 @@ namespace BlogMe.Controllers
         {
             List<Blog> blogs = _context.Blogs.ToList();
 
-            int pageSize = 2;
+            int pageSize = 3;
             int pageNumber = (page ?? 1);
 
             var pageBlogs = blogs.ToPagedList(pageNumber, pageSize);
