@@ -157,11 +157,11 @@ namespace BlogMe.Controllers
                 if (result.Succeeded)
                 {
 
-                    // Role Code
-                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                    var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    await roleManager.CreateAsync(new IdentityRole("Admin"));
-                    await UserManager.AddToRoleAsync(user.Id, "Admin");
+                    //Role Code
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("Admin"));
+                    //await UserManager.AddToRoleAsync(user.Id, "Admin");
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
