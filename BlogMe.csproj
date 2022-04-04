@@ -195,6 +195,10 @@
     <Compile Include="Migrations\202204041806245_CreateBlogModel.designer.cs">
       <DependentUpon>202204041806245_CreateBlogModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.cs" />
+    <Compile Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.designer.cs">
+      <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204041806245_CreateBlogModel.resx">
       <DependentUpon>202204041806245_CreateBlogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.resx">
+      <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

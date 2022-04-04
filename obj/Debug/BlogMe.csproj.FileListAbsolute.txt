@@ -115,3 +115,4 @@ C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.pd
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.InitialSetup.resources
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.csproj.GenerateResource.cache
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.CreateBlogModel.resources
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.SeedAdminUserAndAdminRole.resources
