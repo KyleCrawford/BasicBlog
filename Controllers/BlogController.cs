@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BlogMe.Models;
 using PagedList;
+using BlogMe.ViewModels;
 
 namespace BlogMe.Controllers
 {
@@ -27,10 +28,23 @@ namespace BlogMe.Controllers
         {
             List<Blog> blogs = _context.Blogs.ToList();
 
+            var currentUser = this.User;
+
+
+
             int pageSize = 2;
             int pageNumber = (page ?? 1);
 
-            return View(blogs.ToPagedList(pageNumber, pageSize));
+
+            
+
+            var viewModel = new ViewAllBlogsViewModel
+            {
+                BlogList = blogs.ToPagedList(pageNumber, pageSize),
+                CurrentUser = this.User
+            };
+
+            return View(viewModel);
         }
 
             // View Blog
