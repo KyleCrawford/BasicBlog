@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity;
 @using PagedList.Mvc;
-@model PagedList.IPagedList<BlogMe.Models.Blog>
+@model BlogMe.ViewModels.ShowAllBlogsViewModel
 @{
     ViewBag.Title = "Blogs";
 }
@@ -20,23 +20,26 @@
 <ul class="list-group">
 
 
-    @for (int i = 0; i < Model.Count(); i++)
+    @for (int i = 0; i < Model.BlogList.Count(); i++)
     {
         <li class="list-group-item">
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Blog Title</th>
-                        <th>Date Created</th>
-                        <th>Author</th>
+                        <th scope="col">Blog Title</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Author</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @{ 
+                        var test = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
+                    }
                    
                     <tr>
-                        <td>@Model[i].Title</td>
-                        <td>@Model[i].CreatedOn</td>
-                        <td>@Model[i].BlogOwnerId</td>
+                        <td class="col-md-4">@Model.BlogList[i].Title</td>
+                        <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
+                        <td class="col-md-4">@test[0].Email</td>
                     </tr>
                 </tbody>
             </table>
@@ -45,6 +48,6 @@
 </ul>
 
 <br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.BlogList.PageCount < Model.BlogList.PageNumber ? 0 : Model.BlogList.PageNumber) of @Model.BlogList.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+@Html.PagedListPager(Model.BlogList, page => Url.Action("Index", new { page }))
