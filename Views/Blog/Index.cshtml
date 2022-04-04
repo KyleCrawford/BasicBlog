@@ -18,8 +18,6 @@
 
 </div>
 <ul class="list-group">
-
-
     @for (int i = 0; i < Model.BlogList.Count(); i++)
     {
         <li class="list-group-item">
@@ -36,7 +34,7 @@
                         var test = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
                     }
                    
-                    <tr>
+                    <tr onclick="location.href = '@Url.Action("text", "Read", new { id=Model.BlogList[i].Id })'">
                         <td class="col-md-4">@Model.BlogList[i].Title</td>
                         <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
                         <td class="col-md-4">@test[0].Email</td>
