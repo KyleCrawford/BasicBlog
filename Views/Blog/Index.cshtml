@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity;
+@using PagedList.Mvc;
+@model BlogMe.ViewModels.ShowAllBlogsViewModel
+@{
+    ViewBag.Title = "Blogs";
+}
+
+@if (@User.Identity.IsAuthenticated)
+{
+    <br />
+    @Html.ActionLink("New Blog", "Edit", new { id=0 }, new { @class = "btn btn-primary" })
+}
+
+
+<h2>Blogs</h2>
+<div>
+
+
+</div>
+<ul class="list-group">
+    @for (int i = 0; i < Model.BlogList.Count(); i++)
+    {
+        <li class="list-group-item">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Blog Title</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ 
+                        var test = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
+                    }
+                   
+                    <tr onclick="location.href = '@Url.Action("Read", "Blog", new { id=Model.BlogList[i].Id })'">
+                        <td class="col-md-4">@Model.BlogList[i].Title</td>
+                        <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
+                        <td class="col-md-4">@test[0].Email</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+    }
+</ul>
+
+<br />
+Page @(Model.BlogList.PageCount < Model.BlogList.PageNumber ? 0 : Model.BlogList.PageNumber) of @Model.BlogList.PageCount
+
+@Html.PagedListPager(Model.BlogList, page => Url.Action("Index", new { page }))
