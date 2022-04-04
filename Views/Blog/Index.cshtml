@@ -1,8 +1,20 @@
-﻿@model List<BlogMe.Models.Blog>
+﻿@model PagedList.IPagedList<BlogMe.Models.Blog>
 @{
     ViewBag.Title = "Blogs";
 }
 
 <h2>Blogs</h2>
+<div>
+    <p>I want to put new blog button here (only if logged in)</p>
+</div>
+<ul>
 
 
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        <li>
+            @Model[i].Title
+        </li>
+    }
+</ul>
+<p>@Model.Count()</p>
