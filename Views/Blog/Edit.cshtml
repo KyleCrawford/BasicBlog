@@ -1,7 +1,22 @@
-﻿
+﻿@model BlogMe.Models.Blog
 @{
     ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
 
+@using (Html.BeginForm("Save", "Blog", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title, new { @class = "indent" })
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control my-input" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(m => m.BlogText, new { @class = "indent" })
+        @Html.TextAreaFor(m => m.BlogText, new { @class = "form-control my-input", @style="height:400px; max-width:80%" })
+        @Html.ValidationMessageFor(m => m.BlogText)
+    </div>
+    <button type="submit" class="btn btn-primary indent">Submit</button>
+}
