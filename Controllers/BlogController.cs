@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BlogMe.Models;
 using PagedList;
 using BlogMe.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace BlogMe.Controllers
 {
@@ -29,6 +30,11 @@ namespace BlogMe.Controllers
         {
             List<Blog> blogs = _context.Blogs.ToList();
 
+            return View(PrepareViewModel(blogs, "View", page));
+        }
+
+        private ShowAllBlogsViewModel PrepareViewModel(List<Blog> blogs, string viewOrEdit, int? page)
+        {
             int pageSize = 3;
             int pageNumber = (page ?? 1);
 
@@ -37,10 +43,18 @@ namespace BlogMe.Controllers
             ShowAllBlogsViewModel viewModel = new ShowAllBlogsViewModel
             {
                 BlogList = pageBlogs,
-                Users = _context.Users.ToList()
+                Users = _context.Users.ToList(),
+                ViewOrEdit = viewOrEdit
             };
+            return viewModel;
+        }
 
-            return View(viewModel);
+        public ActionResult ViewOwnBlogs(int? page)
+        {
+            string userId = User.Identity.GetUserId();
+            List<Blog> blogs = _context.Blogs.Where(b => b.BlogOwnerId == userId).ToList();
+
+            return View("Index", PrepareViewModel(blogs, "Edit", page));
         }
 
         // View Blog
@@ -62,6 +76,7 @@ namespace BlogMe.Controllers
         // Edit an existing blog
         public ActionResult Edit(int id)
         {
+            Blog test = null;
             if (id == 0)
             {
                 // we are creating a new blog
@@ -69,6 +84,18 @@ namespace BlogMe.Controllers
             else
             {
                 // We are editing an existing blog
+                test = _context.Blogs.SingleOrDefault(b => b.Id == id);
+            }
+            return View(test);
+        }
+
+        public ActionResult Save(Blog blog)
+        {
+            
+            if (!ModelState.IsValid)
+            {
+
+                return View();
             }
             return View();
         }

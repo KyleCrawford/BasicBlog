@@ -9,6 +9,7 @@
 {
     <br />
     @Html.ActionLink("New Blog", "Edit", new { id=0 }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("View My Blogs", "ViewOwnBlogs", null, new { @class = "btn btn-primary"})
 }
 
 
@@ -38,6 +39,10 @@
                         <td class="col-md-4">@Model.BlogList[i].Title</td>
                         <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
                         <td class="col-md-4">@test[0].Email</td>
+                        @if (Model.ViewOrEdit == "Edit")
+                        { 
+                            <td class="col-md-4">@Html.ActionLink("Edit", "Edit", new {Model.BlogList[i].Id}, new {@class = "btn primary-btn"})</td>
+                        }
                     </tr>
                 </tbody>
             </table>

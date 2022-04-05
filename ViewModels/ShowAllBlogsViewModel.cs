@@ -13,6 +13,8 @@ namespace BlogMe.ViewModels
         public PagedList.IPagedList<Blog> BlogList { get; set; }
         // and all the users
         public List<ApplicationUser> Users { get; set; }
-        
+
+        public string ViewOrEdit { get; set; }
+
     }
 }
