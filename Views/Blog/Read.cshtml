@@ -1,7 +1,9 @@
-﻿
+﻿@model BlogMe.Models.Blog
 @{
     ViewBag.Title = "ReadBlog";
 }
 
-<h2>ReadBlog</h2>
+<h2>@Model.Title</h2>
+
+<p>@Model.BlogText</p>
 

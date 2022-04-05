@@ -32,7 +32,13 @@ namespace BlogMe.Controllers
 
             return View(PrepareViewModel(blogs, "View", page));
         }
+        public ActionResult ViewOwnBlogs(int? page)
+        {
+            string userId = User.Identity.GetUserId();
+            List<Blog> blogs = _context.Blogs.Where(b => b.BlogOwnerId == userId).ToList();
 
+            return View("Index", PrepareViewModel(blogs, "Edit", page));
+        }
         private ShowAllBlogsViewModel PrepareViewModel(List<Blog> blogs, string viewOrEdit, int? page)
         {
             int pageSize = 3;
@@ -47,14 +53,6 @@ namespace BlogMe.Controllers
                 ViewOrEdit = viewOrEdit
             };
             return viewModel;
-        }
-
-        public ActionResult ViewOwnBlogs(int? page)
-        {
-            string userId = User.Identity.GetUserId();
-            List<Blog> blogs = _context.Blogs.Where(b => b.BlogOwnerId == userId).ToList();
-
-            return View("Index", PrepareViewModel(blogs, "Edit", page));
         }
 
         // View Blog
