@@ -7,6 +7,7 @@ using BlogMe.Models;
 using PagedList;
 using BlogMe.ViewModels;
 using Microsoft.AspNet.Identity;
+using System.Web.Http;
 
 namespace BlogMe.Controllers
 {
@@ -82,7 +83,16 @@ namespace BlogMe.Controllers
             else
             {
                 // We are editing an existing blog
+                
                 test = _context.Blogs.SingleOrDefault(b => b.Id == id);
+                if (test is null)
+                {
+                    throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+                }
+                if (test.BlogOwnerId != User.Identity.GetUserId())
+                {
+                    throw new HttpResponseException(System.Net.HttpStatusCode.Unauthorized);
+                }
             }
             return View(test);
         }
