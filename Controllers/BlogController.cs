@@ -8,6 +8,7 @@ using PagedList;
 using BlogMe.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
+using AuthorizeAttribute = System.Web.Mvc.AuthorizeAttribute;
 
 namespace BlogMe.Controllers
 {
@@ -73,6 +74,7 @@ namespace BlogMe.Controllers
 
         // Edit
         // Edit an existing blog
+        [Authorize]
         public ActionResult Edit(int id)
         {
             Blog test = null;
