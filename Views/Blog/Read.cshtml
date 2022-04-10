@@ -1,4 +1,5 @@
 ﻿@model BlogMe.Models.Blog
+@using BlogMe.Models;
 @{
     ViewBag.Title = "ReadBlog";
 }
@@ -6,4 +7,15 @@
 <h2>@Model.Title</h2>
 
 <p>@Model.BlogText</p>
+@if (Model.Comments is null)
+{
+    <p>Hmmm</p>
+}
+else
+{
+    foreach (Comment comment in Model.Comments)
+    {
+        <p>@comment.CommentText</p>
+    }
+}
 

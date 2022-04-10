@@ -206,9 +206,9 @@
     <Compile Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.designer.cs">
       <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204102154352_AddCommentModel.cs" />
-    <Compile Include="Migrations\202204102154352_AddCommentModel.designer.cs">
-      <DependentUpon>202204102154352_AddCommentModel.cs</DependentUpon>
+    <Compile Include="Migrations\202204102219471_TestCommentsToBlogs.cs" />
+    <Compile Include="Migrations\202204102219471_TestCommentsToBlogs.designer.cs">
+      <DependentUpon>202204102219471_TestCommentsToBlogs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,8 +307,8 @@
     <EmbeddedResource Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.resx">
       <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204102154352_AddCommentModel.resx">
-      <DependentUpon>202204102154352_AddCommentModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204102219471_TestCommentsToBlogs.resx">
+      <DependentUpon>202204102219471_TestCommentsToBlogs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

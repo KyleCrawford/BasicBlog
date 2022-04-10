@@ -22,5 +22,8 @@ namespace BlogMe.Models
         [Required]
         [Display(Name = "Left at:")]
         public DateTime TimeCommented { get; set; }
+
+        public int BlogId { get; set; }
+        public virtual Blog Blog { get; set; }
     }
 }

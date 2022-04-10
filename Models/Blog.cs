@@ -25,5 +25,7 @@ namespace BlogMe.Models
 
         public string BlogOwnerId { get; set; }
         public ApplicationUser BlogOwner { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 }

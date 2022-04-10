@@ -120,4 +120,4 @@ C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.dll
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.Mvc.dll
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.xml
 C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\bin\PagedList.Mvc.xml
-C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.AddCommentModel.resources
+C:\Users\Kyle Crawford\Documents\GitHub\BlogMe\BlogMe\BlogMe\obj\Debug\BlogMe.Migrations.TestCommentsToBlogs.resources
