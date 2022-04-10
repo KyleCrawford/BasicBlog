@@ -49,4 +49,4 @@
 <br />
 Page @(Model.BlogList.PageCount < Model.BlogList.PageNumber ? 0 : Model.BlogList.PageNumber) of @Model.BlogList.PageCount
 
-@Html.PagedListPager(Model.BlogList, page => Url.Action("Index", new { page }))
+@Html.PagedListPager(Model.BlogList, page => Url.Action(Model.ViewOrEdit == "View" ? "Index" : "ViewOwnBlogs", new { page }))

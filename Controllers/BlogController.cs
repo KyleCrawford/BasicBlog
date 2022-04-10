@@ -35,6 +35,8 @@ namespace BlogMe.Controllers
 
             return View(PrepareViewModel(blogs, "View", page));
         }
+
+        [Authorize]
         public ActionResult ViewOwnBlogs(int? page)
         {
             string userId = User.Identity.GetUserId();
@@ -110,10 +112,33 @@ namespace BlogMe.Controllers
             
             if (!ModelState.IsValid)
             {
-
-                return View();
+                return View("Edit", blog);
             }
-            return View();
+
+            if (blog.Id == 0)
+            {
+                // create new blog
+                blog.CreatedOn = DateTime.Now;
+                blog.BlogOwnerId = User.Identity.GetUserId();
+                _context.Blogs.Add(blog);
+            }
+            else
+            {
+                // edit existing blog
+                Blog oldBlog = _context.Blogs.SingleOrDefault(b => b.Id == blog.Id);
+                if (oldBlog is null)
+                {
+                    // something went wrong
+                    return View("Edit", blog);
+                }
+
+                oldBlog.Title = blog.Title;
+                oldBlog.BlogText = blog.BlogText;
+                //oldBlog.CreatedOn = blog.CreatedOn;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Read", blog); //View("Read", blog);
         }
 
         // Delete - Can just put this on the Edit page. Might need a function
