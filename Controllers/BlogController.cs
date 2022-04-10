@@ -9,6 +9,7 @@ using BlogMe.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
 using AuthorizeAttribute = System.Web.Mvc.AuthorizeAttribute;
+using HttpPostAttribute = System.Web.Mvc.HttpPostAttribute;
 
 namespace BlogMe.Controllers
 {
@@ -67,6 +68,7 @@ namespace BlogMe.Controllers
 
         // New Blog
         // Create a blog, must be logged in
+        [Authorize]
         public ActionResult New()
         {
             return View();
@@ -94,11 +96,15 @@ namespace BlogMe.Controllers
                 if (test.BlogOwnerId != User.Identity.GetUserId())
                 {
                     throw new HttpResponseException(System.Net.HttpStatusCode.Unauthorized);
+                    //return HttpNotFound();
                 }
             }
             return View(test);
         }
 
+        [Authorize]
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Save(Blog blog)
         {
             
