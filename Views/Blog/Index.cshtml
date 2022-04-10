@@ -34,7 +34,7 @@
             <tr onclick="location.href = '@Url.Action("Read", "Blog", new { id=Model.BlogList[i].Id })'">
                 <td class="col-md-4">@Model.BlogList[i].Title</td>
                 <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
-                <td class="col-md-4">@user[0].Email</td>
+                <td class="col-md-4">@user[0].UserName</td>
                 @if (Model.ViewOrEdit == "Edit")
                 {
                     <td class="col-md-4">@Html.ActionLink("Edit", "Edit", new { Model.BlogList[i].Id }, new { @class = "btn primary-btn" })</td>
