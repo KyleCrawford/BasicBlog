@@ -81,7 +81,7 @@ namespace BlogMe.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            Blog test = null;
+            Blog blog = null;
             if (id == 0)
             {
                 // we are creating a new blog
@@ -90,18 +90,18 @@ namespace BlogMe.Controllers
             {
                 // We are editing an existing blog
                 
-                test = _context.Blogs.SingleOrDefault(b => b.Id == id);
-                if (test is null)
+                blog = _context.Blogs.SingleOrDefault(b => b.Id == id);
+                if (blog is null)
                 {
                     throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
                 }
-                if (test.BlogOwnerId != User.Identity.GetUserId())
+                if (blog.BlogOwnerId != User.Identity.GetUserId())
                 {
                     throw new HttpResponseException(System.Net.HttpStatusCode.Unauthorized);
                     //return HttpNotFound();
                 }
             }
-            return View(test);
+            return View(blog);
         }
 
         [Authorize]
@@ -139,6 +139,23 @@ namespace BlogMe.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Read", blog); //View("Read", blog);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            Blog blog = _context.Blogs.SingleOrDefault(b => b.Id == id);
+            if (blog is null)
+            {
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            }
+            if (blog.BlogOwnerId != User.Identity.GetUserId())
+            {
+                throw new HttpResponseException(System.Net.HttpStatusCode.Unauthorized);
+                //return HttpNotFound();
+            }
+            _context.Blogs.Remove(blog);
+            _context.SaveChanges();
+            return RedirectToAction("ViewOwnBlogs");
         }
 
         // Delete - Can just put this on the Edit page. Might need a function

@@ -19,5 +19,5 @@
         @Html.ValidationMessageFor(m => m.BlogText)
     </div>
     <button type="submit" class="btn btn-primary indent">Submit</button>
-    @Html.ActionLink("Delete", "Delete", Model.Id, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-primary" })
 }
