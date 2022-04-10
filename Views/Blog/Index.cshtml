@@ -29,11 +29,7 @@
     <tbody>
         @for (int i = 0; i < Model.BlogList.Count(); i++)
         {
-            //Model.Users test;
-            List<BlogMe.Models.ApplicationUser> user;
-            {
-                user = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
-            }
+            List<BlogMe.Models.ApplicationUser> user = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
 
             <tr onclick="location.href = '@Url.Action("Read", "Blog", new { id=Model.BlogList[i].Id })'">
                 <td class="col-md-4">@Model.BlogList[i].Title</td>
