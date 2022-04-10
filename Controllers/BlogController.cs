@@ -65,7 +65,7 @@ namespace BlogMe.Controllers
         public ActionResult Read(int id)
         {
             Blog blog = _context.Blogs.Find(id);
-            blog.Comments = _context.Comments.Where(c => c.BlogId == id).ToList();
+            //blog.Comments = _context.Comments.Where(c => c.BlogId == id).ToList();
             return View(blog);
         }
 
