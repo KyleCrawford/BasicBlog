@@ -13,9 +13,17 @@
 }
 else
 {
-    foreach (Comment comment in Model.Comments)
+<ul class="list-group" >
+    @foreach (Comment comment in Model.Comments)
     {
+    <li class="list-group-item" style="border-radius:15px; width:60%; margin-bottom:10px;">
+        <div style="background-color: rosybrown; border-radius:15px; padding:5px;">
+            <span>@comment.Username</span>
+            <span style="float:right;">@comment.TimeCommented</span>
+        </div>
         <p>@comment.CommentText</p>
+    </li>
     }
+</ul>
 }
 
