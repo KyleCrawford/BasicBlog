@@ -168,32 +168,17 @@ namespace BlogMe.Controllers
         }
 
         [Authorize]
-        public ActionResult Comment(ReadWithCommentsViewModel test)
+        public ActionResult Comment(ReadWithCommentsViewModel viewModel)
         {
-            //Blog blog = _context.Blogs.SingleOrDefault(b => b.Id == id);
-            Comment comment = test.Comment;
+            Comment comment = viewModel.Comment;
             comment.TimeCommented = DateTime.Now;
             comment.Username = User.Identity.GetUserName();
-            comment.BlogId = test.Blog.Id;
-            //comment.CommentText = comment.CommentText;
+            comment.BlogId = viewModel.Blog.Id;
             _context.Comments.Add(comment);
-            //blog.Comments.Add(comment);
             _context.SaveChanges();
 
-            var arg = test;
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-
-            return RedirectToAction("Read", new { id=test.Blog.Id });
+            return RedirectToAction("Read", new { id= viewModel.Blog.Id });
         }
-        // Delete - Can just put this on the Edit page. Might need a function
-
+        
     }
 }
