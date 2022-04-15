@@ -14,13 +14,9 @@
     <button type="submit" class="btn btn-primary">Leave Comment</button>
     <div style="margin:5px;">
         <!--<textarea rows="10" style="margin-left:0; width:60%; max-width:80%; max-height:100vh;"></textarea>-->
-        @Html.TextAreaFor(m => Html.Encode(m.Comment.CommentText))
+        @Html.TextAreaFor(m => m.Comment.CommentText)
     </div>
-    <div>
         @Html.HiddenFor(m => m.Comment.Username)
-    </div>
-
-
 }
 
 <h3>Comments</h3>
@@ -32,7 +28,7 @@
             <li class="list-group-item comment">
                 <div class="comment-info">
                     <span>@Html.Encode(comment.Username)</span>
-                    <span class="comment-time">@Html.Encode(comment.TimeCommented)</span>
+                    <span class="comment-time">@comment.TimeCommented</span>
                 </div>
                 <p class="comment-text">@Html.Encode(comment.CommentText)</p>
             </li>
