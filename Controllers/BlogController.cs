@@ -93,6 +93,7 @@ namespace BlogMe.Controllers
             if (id == 0)
             {
                 // we are creating a new blog
+                blog = new Blog();
             }
             else
             {
@@ -142,7 +143,6 @@ namespace BlogMe.Controllers
 
                 oldBlog.Title = blog.Title;
                 oldBlog.BlogText = blog.BlogText;
-                //oldBlog.CreatedOn = blog.CreatedOn;
             }
             _context.SaveChanges();
 
