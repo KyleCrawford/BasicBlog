@@ -13,8 +13,7 @@
 
     <button type="submit" class="btn btn-primary">Leave Comment</button>
     <div style="margin:5px;">
-        <!--<textarea rows="10" style="margin-left:0; width:60%; max-width:80%; max-height:100vh;"></textarea>-->
-        @Html.TextAreaFor(m => m.Comment.CommentText)
+        @Html.TextAreaFor(m => m.Comment.CommentText, new { @class= "comment-area" })
     </div>
         @Html.HiddenFor(m => m.Comment.Username)
 }

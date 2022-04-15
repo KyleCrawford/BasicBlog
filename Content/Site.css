@@ -38,3 +38,11 @@ textarea {
 .btn{
     border:1px solid black;
 }
+
+.comment-area {
+    margin-left:0;
+    width:60%; 
+    max-width:80%; 
+    max-height:100vh;
+    height:25vh;
+}
