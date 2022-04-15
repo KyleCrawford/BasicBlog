@@ -20,15 +20,14 @@
 input,
 select,
 textarea {
-    /*max-width: 280px;
-    max-width:100%;*/
+    max-width: 380px;
     margin-left:10%;
     margin-right:10%;
-    width:50%;
 }
 
 .my-input{
     width:80%;
+    max-width:80%;
 }
 
 .indent{

@@ -8,7 +8,7 @@
 @using (Html.BeginForm("Save", "Blog", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.Title, new { @class = "indent" })
+        @Html.LabelFor(m => m.Title, new { @class = "indent my-input" })
         @Html.TextBoxFor(m => m.Title, new { @class = "form-control my-input" })
         @Html.ValidationMessageFor(m => m.Title)
     </div>
