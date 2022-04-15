@@ -1,29 +1,42 @@
-﻿@model BlogMe.Models.Blog
-@using BlogMe.Models;
+﻿@using BlogMe.Models;
+@model BlogMe.ViewModels.ReadWithCommentsViewModel
+
 @{
     ViewBag.Title = "ReadBlog";
 }
-
-<h2>@Model.Title</h2>
-
-<p>@Model.BlogText</p>
-@if (Model.Comments is null)
+@using (Html.BeginForm("Comment", "Blog"))
 {
-    <p>Hmmm</p>
+    @Html.HiddenFor(m => m.Blog.Id)
+    <h2>@Html.DisplayTextFor(m => m.Blog.Title)</h2>
+    <p>@Html.DisplayFor(m => m.Blog.BlogText)</p>
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Leave Comment</button>
+    <div style="margin:5px;">
+        <!--<textarea rows="10" style="margin-left:0; width:60%; max-width:80%; max-height:100vh;"></textarea>-->
+        @Html.TextAreaFor(m => m.Comment.CommentText)
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Comment.Username)
+    </div>
+
+
 }
-else
+
+<h3>Comments</h3>
+@if (Model.Blog.Comments != null)
 {
-<ul class="list-group" >
-    @foreach (Comment comment in Model.Comments)
-    {
-    <li class="list-group-item" style="border-radius:15px; width:60%; margin-bottom:10px;">
-        <div style="background-color: rosybrown; border-radius:15px; padding:5px;">
-            <span>@comment.Username</span>
-            <span style="float:right;">@comment.TimeCommented</span>
-        </div>
-        <p>@comment.CommentText</p>
-    </li>
-    }
-</ul>
+    <ul class="list-group">
+        @foreach (Comment comment in Model.Blog.Comments)
+        {
+            <li class="list-group-item comment">
+                <div class="comment-info">
+                    <span>@comment.Username</span>
+                    <span class="comment-time">@comment.TimeCommented</span>
+                </div>
+                <p class="comment-text">@comment.CommentText</p>
+            </li>
+        }
+    </ul>
 }
 

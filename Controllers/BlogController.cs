@@ -11,6 +11,8 @@ using System.Web.Http;
 using AuthorizeAttribute = System.Web.Mvc.AuthorizeAttribute;
 using HttpPostAttribute = System.Web.Mvc.HttpPostAttribute;
 
+using System.Data.Entity.Validation;
+
 namespace BlogMe.Controllers
 {
     public class BlogController : Controller
@@ -66,7 +68,12 @@ namespace BlogMe.Controllers
         {
             Blog blog = _context.Blogs.Find(id);
             //blog.Comments = _context.Comments.Where(c => c.BlogId == id).ToList();
-            return View(blog);
+            ReadWithCommentsViewModel viewModel = new ReadWithCommentsViewModel
+            {
+                Blog = blog,
+                Comment = new Comment()
+            };
+            return View(viewModel);
         }
 
         // New Blog
@@ -142,6 +149,7 @@ namespace BlogMe.Controllers
             return RedirectToAction("Read", blog); //View("Read", blog);
         }
 
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             Blog blog = _context.Blogs.SingleOrDefault(b => b.Id == id);
@@ -159,6 +167,32 @@ namespace BlogMe.Controllers
             return RedirectToAction("ViewOwnBlogs");
         }
 
+        [Authorize]
+        public ActionResult Comment(ReadWithCommentsViewModel test)
+        {
+            //Blog blog = _context.Blogs.SingleOrDefault(b => b.Id == id);
+            Comment comment = test.Comment;
+            comment.TimeCommented = DateTime.Now;
+            comment.Username = User.Identity.GetUserName();
+            comment.BlogId = test.Blog.Id;
+            //comment.CommentText = comment.CommentText;
+            _context.Comments.Add(comment);
+            //blog.Comments.Add(comment);
+            _context.SaveChanges();
+
+            var arg = test;
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            return RedirectToAction("Read", new { id=test.Blog.Id });
+        }
         // Delete - Can just put this on the Edit page. Might need a function
 
     }
