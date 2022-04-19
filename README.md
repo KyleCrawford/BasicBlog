@@ -1,4 +1,4 @@
-# BlogMe
+# Basic Blog
 Simple Blog made using C# ASP .NET Framework 4.8 MVC with Entity Framework
 
 Work In Progress...
