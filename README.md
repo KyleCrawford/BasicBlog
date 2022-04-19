@@ -1,5 +1,5 @@
 # Basic Blog
-Simple Blog made using C# ASP .NET Framework 4.8 MVC with Entity Framework
+Simple Blog made using C# ASP .NET Framework 4.8 MVC with Entity Framework (Intention to build a project to upgrade to .Net 6)
 
 Work In Progress...
 
