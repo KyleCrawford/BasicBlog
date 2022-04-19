@@ -23,7 +23,7 @@ namespace BlogMe
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/darkly-bootstrap.css",
+                      "~/Content/super-bootstrap.css",
                       "~/Content/Site.css", "~/Content/read.css"));
         }
     }
