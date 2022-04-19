@@ -10,9 +10,8 @@ Registered users are able to leave comments on other posts.
 
 This program was written using .NET Framework 4.8 simply because it is the last version before .NET Core (and now .NET).
 Just showcasing skills related to this framework.
+(Next might be a project upgrading this to .NET)
 
 * Note * 
 This Git does include migration and database info including the admin accounts. If this project is deployed, these values will be changed.
-
-
 
