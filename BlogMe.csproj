@@ -206,13 +206,19 @@
     <Compile Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.designer.cs">
       <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204102219471_TestCommentsToBlogs.cs" />
+    <Compile Include="Migrations\202204102219471_TestCommentsToBlogs.designer.cs">
+      <DependentUpon>202204102219471_TestCommentsToBlogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ReadWithCommentsViewModel.cs" />
     <Compile Include="ViewModels\ShowAllBlogsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +227,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\read.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -301,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204041817159_SeedAdminUserAndAdminRole.resx">
       <DependentUpon>202204041817159_SeedAdminUserAndAdminRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204102219471_TestCommentsToBlogs.resx">
+      <DependentUpon>202204102219471_TestCommentsToBlogs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

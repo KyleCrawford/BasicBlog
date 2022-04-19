@@ -1,7 +1,37 @@
-﻿
+﻿@using BlogMe.Models;
+@model BlogMe.ViewModels.ReadWithCommentsViewModel
+
 @{
     ViewBag.Title = "ReadBlog";
 }
+@using (Html.BeginForm("Comment", "Blog"))
+{
+    @Html.HiddenFor(m => m.Blog.Id)
+    <h2>@Html.DisplayTextFor(m => m.Blog.Title)</h2>
+    <p>@Html.DisplayFor(m => m.Blog.BlogText)</p>
+    <hr />
 
-<h2>ReadBlog</h2>
+    <button type="submit" class="btn btn-primary">Leave Comment</button>
+    <div style="margin:5px;">
+        @Html.TextAreaFor(m => m.Comment.CommentText, new { @class= "comment-area" })
+    </div>
+        @Html.HiddenFor(m => m.Comment.Username)
+}
+
+<h3>Comments</h3>
+@if (Model.Blog.Comments != null)
+{
+    <ul class="list-group">
+        @foreach (Comment comment in Model.Blog.Comments)
+        {
+            <li class="list-group-item">
+                <div class="">
+                    <span>@Html.Encode(comment.Username)</span>
+                    <span class="comment-time">@comment.TimeCommented</span>
+                </div>
+                <p class="comment-text">@comment.CommentText</p>
+            </li>
+        }
+    </ul>
+}
 

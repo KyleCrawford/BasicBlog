@@ -8,9 +8,10 @@ namespace BlogMe.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public void Index()
         {
-            return View();
+            Response.Redirect("/Blog");
+
         }
 
         public ActionResult About()

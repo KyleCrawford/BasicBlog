@@ -21,7 +21,11 @@ namespace BlogMe.Models
         [Required]
         public string BlogText { get; set; }
 
+        //public string Comments { get; set; }
+
         public string BlogOwnerId { get; set; }
         public ApplicationUser BlogOwner { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

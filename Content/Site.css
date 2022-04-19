@@ -20,11 +20,29 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 380px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.my-input{
+    width:80%;
+    max-width:80%;
+}
+
+.indent{
+    margin-left:10%;
 }
 
 
 .btn{
-    width:500px;
     border:1px solid black;
+}
+
+.comment-area {
+    margin-left:0;
+    width:60%; 
+    max-width:80%; 
+    max-height:100vh;
+    height:25vh;
 }
