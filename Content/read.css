@@ -20,3 +20,11 @@
 .comment-time {
     float:right;
 }
+
+.larger-font{
+    font-size:2rem;
+}
+
+.title-font {
+    font-size: 2.5rem;
+}

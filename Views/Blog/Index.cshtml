@@ -21,9 +21,9 @@
 <table class="table table-bordered table-hover table-striped">
     <thead>
         <tr>
-            <th scope="col">Blog Title</th>
-            <th scope="col">Date Created</th>
-            <th scope="col">Author</th>
+            <th class="title-font" scope="col">Blog Title</th>
+            <th class="title-font" scope="col">Date Created</th>
+            <th class="title-font" scope="col">Author</th>
         </tr>
     </thead>
     <tbody>
@@ -32,9 +32,9 @@
             List<BlogMe.Models.ApplicationUser> user = Model.Users.Where(o => o.Id == Model.BlogList[i].BlogOwnerId).ToList();
 
             <tr onclick="location.href = '@Url.Action("Read", "Blog", new { id=Model.BlogList[i].Id })'">
-                <td class="col-md-4">@Model.BlogList[i].Title</td>
-                <td class="col-md-4">@Model.BlogList[i].CreatedOn</td>
-                <td class="col-md-4">@user[0].UserName</td>
+                <td class="col-md-4 larger-font">@Model.BlogList[i].Title</td>
+                <td class="col-md-4 larger-font">@Model.BlogList[i].CreatedOn</td>
+                <td class="col-md-4 larger-font">@user[0].UserName</td>
                 @if (Model.ViewOrEdit == "Edit")
                 {
                     <td class="col-md-4">@Html.ActionLink("Edit", "Edit", new { Model.BlogList[i].Id }, new { @class = "btn primary-btn" })</td>
