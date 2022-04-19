@@ -24,8 +24,8 @@
     <ul class="list-group">
         @foreach (Comment comment in Model.Blog.Comments)
         {
-            <li class="list-group-item comment">
-                <div class="comment-info">
+            <li class="list-group-item">
+                <div class="">
                     <span>@Html.Encode(comment.Username)</span>
                     <span class="comment-time">@comment.TimeCommented</span>
                 </div>
